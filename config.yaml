@@ -1,0 +1,51 @@
+---
+version: 1.0.0
+slug: local_linux_voice_assistant
+name: Local Satellite Voice Assistant
+description: Local voice assistant with wake word detection using linux-voice-assistant
+url: https://github.com/zaz969/ha-local-voice-assistant
+hassio_api: true
+arch:
+  - amd64
+  - aarch64
+init: false
+startup: services
+boot: auto
+# Required to keep the MAC address constant so ESPHome does not reject device connection
+host_network: true
+discovery: []
+map:
+  - share:rw
+  - /run/user/1000/pulse:/run/user/1000/pulse:ro
+options:
+  wake_model: "okay_nabu"
+  stop_model: "stop"
+  auto_gain: 0
+  mic_noise_suppression: 0
+  wakeup_sound: ""
+  timer_finished_sound: ""
+  processing_sound: ""
+  mute_sound: ""
+  unmute_sound: ""
+  enable_debug: false
+schema:
+  wake_model: str
+  stop_model: str
+  auto_gain: int(0,31)
+  mic_noise_suppression: int(0,4)
+  wakeup_sound: str?
+  timer_finished_sound: str?
+  processing_sound: str?
+  mute_sound: str?
+  unmute_sound: str?
+  enable_debug: bool
+audio: true
+privileged:
+  - SYS_ADMIN
+  - SYS_NICE
+devices:
+  - /dev/snd
+homeassistant: 2023.12.1
+ports:
+  '6053/tcp': 6053
+build: .

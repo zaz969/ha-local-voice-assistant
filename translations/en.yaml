@@ -1,0 +1,34 @@
+configuration:
+  wake_model:
+    name: Wake Model
+    description: Wake word detection model to use (Default is "okay_nabu")
+  stop_model:
+    name: Stop Model
+    description: Stop word detection model to use
+  auto_gain:
+    name: Auto Gain
+    description: Automatic gain control level (0-31)
+  mic_noise_suppression:
+    name: Microphone Noise Suppression
+    description: Microphone noise suppression level (0-4)
+  wakeup_sound:
+    name: Wakeup Sound
+    description: Sound file to play when wake word is detected
+  timer_finished_sound:
+    name: Timer Finished Sound
+    description: Sound file to play when timer finishes
+  processing_sound:
+    name: Processing Sound
+    description: Sound file to play while processing voice command
+  mute_sound:
+    name: Mute Sound
+    description: Sound file to play when muted
+  unmute_sound:
+    name: Unmute Sound
+    description: Sound file to play when unmuted
+  port:
+    name: Port
+    description: Port number for the voice assistant service
+  enable_debug:
+    name: Enable Debug
+    description: Enable debug logging output
