@@ -16,5 +16,7 @@ RUN apt-get update && \
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
+COPY override/ /app/override
+
 ENTRYPOINT []
 CMD ["/run.sh"]

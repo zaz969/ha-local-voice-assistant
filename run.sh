@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Starting Local Linux Voice Assistant..."
+echo "Starting Local Satellite Voice Assistant..."
 
 # Ensure runtime dirs exist
 export PULSE_COOKIE=/data/tmp_pulse_cookie
@@ -38,6 +38,7 @@ export MUTE_SOUND="$(jq -r '.mute_sound // empty' /data/options.json)"
 export UNMUTE_SOUND="$(jq -r '.unmute_sound // empty' /data/options.json)"
 export PORT="$(jq -r '.port // empty' /data/options.json)"
 export ENABLE_DEBUG="$(jq -r '.enable_debug // false' /data/options.json)"
+export CLIENT_NAME="Local Satellite"
 
 # Convert enable_debug boolean string to 1 or 0
 if [ "$ENABLE_DEBUG" = "true" ]; then
@@ -57,7 +58,11 @@ fi
 [ -n "$MUTE_SOUND" ] && echo "  MUTE_SOUND=$MUTE_SOUND"
 [ -n "$UNMUTE_SOUND" ] && echo "  UNMUTE_SOUND=$UNMUTE_SOUND"
 [ -n "$PORT" ] && echo "  PORT=$PORT"
+[ -n "$CLIENT_NAME" ] && echo "  CLIENT_NAME=$CLIENT_NAME"
 echo "  ENABLE_DEBUG=$ENABLE_DEBUG"
+
+# Inject override directory into PYTHONPATH for custom components
+export PYTHONPATH="/app/override:$PYTHONPATH"
 
 echo "Launching application..."
 exec /app/docker-entrypoint.sh
