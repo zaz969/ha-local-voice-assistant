@@ -1,4 +1,4 @@
-FROM ghcr.io/ohf-voice/linux-voice-assistant:1.1.10
+FROM ghcr.io/ohf-voice/linux-voice-assistant:1.1.12
 
 RUN apt-get update && \
     apt-get install --yes --no-install-recommends \
