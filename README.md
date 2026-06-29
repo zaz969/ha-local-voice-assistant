@@ -35,18 +35,14 @@ All configuration is optional - the addon auto-detects most settings. You can cu
 Audio input (microphone) and output (speaker) devices are selectable via dropdown menus on the addon configuration page before starting the addon.
 
 ### Audio Processing
+- **Microphone Volume (0-100)**: Sets the microphone capture level; 100 is max volume.
 - **Auto Gain (0-31)**: Automatically adjusts microphone volume. 0 = disabled, higher values = more aggressive
 - **Noise Suppression (0-4)**: Reduces background noise. 0 = disabled, 4 = maximum
-
-### Wake Word
-- **Wake Model**: The phrase to trigger the assistant (default: "okay_nabu"). Common options:
-  - `okay_nabu` - "Okay Nabu"
-  - `hey_mycroft` - "Hey Mycroft"
-  - `hey_jarvis` - "Hey Jarvis"
-  - `alexa` - "Alexa"
-  - See docs for all available models
-
 - **Stop Model**: The phrase to stop listening (default: "stop")
+
+### Conversation and Timer Settings
+- **Continue Conversation Delay (seconds)**: Delay before the assistant continues listening or accepts follow-up speech after a response.
+- **Timer Max Ring Seconds**: Maximum length of the timer ring notification (default: 60)
 
 ### Sound Feedback
 Customize audio feedback sounds (leave blank to use defaults):
@@ -76,11 +72,26 @@ The device integrates directly via Home Assistant's native ESPHome integration.
 
 ## Wake Word Detection
 
-Wake word detection happens locally on the device. Available models include:
-- OpenWakeWord models (newer, more flexible): `alexa_v0.1`, `hey_jarvis_v0.1`, `hey_mycroft_v0.1`, `hey_rhasspy_v0.1`, `ok_nabu_v0.1`
-- Standard models: `okay_nabu`, `hey_mycroft`, `hey_jarvis`, `alexa`, `choo_choo_homie`, `hey_luna`, `hey_home_assistant` and others
+The following wake word models are available:
 
-See the [documentation](DOCS.md) for the complete list.
+**microWakeWord:**
+- `okay_nabu` - Default wake word
+- `alexa` - Alexa wake word
+- `hey_jarvis` - Jarvis wake word
+- `hey_mycroft` - Mycroft wake word
+- `hey_morgan` - Morgan wake word
+- `hey_luna` - Luna wake word
+- `hey_home_assistant` - Home Assistant wake word
+- `stop` - Stop wake word
+- `okay_computer` - Okay Computer wake word
+- `choo_choo_homie` - Choo Choo Homie wake word
+
+**openWakeWord:**
+- `ok_nabu` - Default wake word
+- `alexa` - Alexa wake word
+- `hey_jarvis` - Jarvis wake word
+- `hey_mycroft` - Mycroft wake word
+- `hey_rhasspy` - Rhasspy wake word
 
 ## Troubleshooting
 

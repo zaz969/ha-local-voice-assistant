@@ -5,9 +5,12 @@ configuration:
   stop_model:
     name: Stop Model
     description: Stop word detection model to use
-  auto_gain:
-    name: Auto Gain
-    description: Automatic gain control level (0-31)
+  mic_volume:
+    name: Microphone Volume
+    description: Microphone input volume level (0-100)
+  mic_auto_gain:
+    name: Microphone Auto Gain
+    description: Microphone automatic gain control level (0-31)
   mic_noise_suppression:
     name: Microphone Noise Suppression
     description: Microphone noise suppression level (0-4)
@@ -29,6 +32,12 @@ configuration:
   port:
     name: Port
     description: Port number for the voice assistant service
+  continue_conversation_delay:
+    name: Continue Conversation Delay
+    description: Time in milliseconds to wait before listening to the next command after a response (0 to disable)
+  timer_max_ring_seconds:
+    name: Timer Max Ring Seconds
+    description: Maximum time in seconds to ring the timer before stopping
   enable_debug:
     name: Enable Debug
     description: Enable debug logging output
