@@ -1,3 +1,4 @@
 .vscode/**/*
 deploy.bat
 robocopy-deploy.log
+config.yaml
